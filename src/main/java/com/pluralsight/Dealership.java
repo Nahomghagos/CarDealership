@@ -24,6 +24,12 @@ public class Dealership {
         this.phone = phone;
         this.inventory = inventory;
     }
+    public Dealership() {
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.inventory = inventory;
+    }
 
 
     public List<Vehicle> getVehiclesByPrice(BigDecimal min, BigDecimal max) {
