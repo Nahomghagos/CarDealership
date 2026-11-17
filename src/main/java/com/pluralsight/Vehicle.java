@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class Vehicle {
     private int vin;
@@ -11,7 +12,6 @@ public class Vehicle {
     private String color;
     private int odometer;
     private BigDecimal price;
-
 
     public int getVin() {
         return vin;

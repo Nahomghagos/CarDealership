@@ -8,34 +8,47 @@ public class Dealership {
     private String name;
     private String address;
     private String phone;
-    private ArrayList<Vehicle> inventory;
+    private ArrayList<Vehicle> inventory = new ArrayList<>();
 
-    public Dealership(String name, String address, String phone) {
+    public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory) {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.inventory = inventory;
     }
-    public List<Vehicle> getVehicleByPrice (BigDecimal min, BigDecimal max){
+
+
+
+    public List<Vehicle> getVehiclesByPrice (BigDecimal min, BigDecimal max){
         return null;
     }
-    public List<Vehicle> getVehicleByMakeModel(String make, String model){
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model){
         return null;
     }
-    public List<Vehicle> getVehicleByYear(int min, int max) {
+    public List<Vehicle> getVehiclesByYear(int min, int max) {
         return null;
     }
-    public List<Vehicle> getVehicleByMillage(int min, int max){
+    public List<Vehicle> getVehiclesByMillage(int min, int max){
         return null;
     }
-    public List<Vehicle> getVehicleByType (String type) {
+    public List<Vehicle> getVehiclesByType (String type) {
         return null;
     }
-    public List<Vehicle> getVehicleColor (String color) {
+    public List<Vehicle> getVehiclesColor (String color) {
         return null;
     }
     public List<Vehicle> getAllVehicles () {
+        return inventory;
+    }
+    public List<Vehicle> getVehiclesVin (int vin ) {
         return null;
     }
+    public List<Vehicle> addVehicles (Vehicle vehicle){
+        inventory.add(vehicle);
+
+
+    }
+
 
 
 
