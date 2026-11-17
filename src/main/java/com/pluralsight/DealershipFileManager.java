@@ -60,5 +60,7 @@ public class DealershipFileManager {
         }
 
     }
+public void saveDealership() {
 
+}
 }
