@@ -28,7 +28,8 @@ public class UserInterface {
         System.out.println("6 - Search by type ");
         System.out.println("7 - List all vehicles ");
         System.out.println("8 - Add a vehicle ");
-        System.out.print("Enter your choice ");
+        System.out.println("9 - remove a vehicle");
+
         int choice = Integer.parseInt(myScanner.nextLine());
 
         switch (choice) {
