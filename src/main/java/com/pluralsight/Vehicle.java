@@ -11,6 +11,21 @@ public class Vehicle {
     private String vehicleType;
     private String color;
     private int odometer;
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vin=" + vin +
+                ", year=" + year +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", vehicleType='" + vehicleType + '\'' +
+                ", color='" + color + '\'' +
+                ", odometer=" + odometer +
+                ", price=" + price +
+                '}';
+    }
+
     private BigDecimal price;
 
     public int getVin() {
