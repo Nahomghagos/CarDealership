@@ -1,23 +1,34 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Scanner;
-
-
 
 public class UserInterface {
 
 Scanner myScanner = new Scanner(System.in);
+    private Dealership dealership;
 
-public void userInterface(){
-
+    public void userInterface(){
+display();
 }
 private void init () {
-
+    DealershipFileManager fileManager = new DealershipFileManager();
+    this.dealership = fileManager.getDealership();
 }
-int choice = myScanner.nextInt();
-
 public void display(){
+    init();
+    System.out.println("1 - Search by price ");
+    System.out.println("2 - Search by make and model ");
+    System.out.println("3 - Search by year ");
+    System.out.println("4 - Search by color ");
+    System.out.println("5 - Search by mileage ");
+    System.out.println("6 - Search by type ");
+    System.out.println("7 - List all vehicles ");
+    System.out.println("8 - Add a vehicle ");
+    System.out.print("Enter your choice ");
+    int choice = Integer.parseInt(myScanner.nextLine());
+
     switch (choice) {
         case 1 -> getByPrice();
         case 2 -> getByMakeModel();
@@ -29,12 +40,13 @@ public void display(){
         case 8 ->addVehicle();
         default -> System.out.println("Invalid choice.");
     }
+
 }
 public void getByPrice() {
     System.out.println("please enter max price ");
-    BigDecimal max = myScanner.nextBigDecimal();
+    BigDecimal max = new BigDecimal(myScanner.nextLine());
     System.out.println("please enter min price");
-    BigDecimal min = myScanner.nextBigDecimal();
+    BigDecimal min = new BigDecimal(myScanner.nextLine());
 }
 
 public void getByMakeModel(){
@@ -45,7 +57,7 @@ public void getByMakeModel(){
     }
 public void getByYear() {
     System.out.println("please enter the year ");
-    int year = myScanner.nextInt();
+    int year = Integer.parseInt(myScanner.nextLine());
 }
 public void getByColor() {
     System.out.println("please enter the color of the vehicle ");
@@ -53,7 +65,7 @@ public void getByColor() {
 }
 public void getByMileage() {
     System.out.println("please enter the mileage ");
-    int mileage = myScanner.nextInt();
+    int mileage = Integer.parseInt(myScanner.nextLine());
 }
 public void getByType() {
     System.out.println("please enter the vehicle type ");
@@ -61,15 +73,22 @@ public void getByType() {
 }
 public void getAllVehicles() {
 
+    List<Vehicle> vehicles = dealership.getAllVehicles();
+    displayVehicles(vehicles);
+}
+private void displayVehicles(List<Vehicle> vehicles) {
+    for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+    }
 }
 public void addVehicle() {
     Dealership dealership = new Dealership();
 
     System.out.print("please enter the vin ");
-    int vin = myScanner.nextInt();
+    int vin = Integer.parseInt(myScanner.nextLine());
 
     System.out.print("please enter the year ");
-    int year = myScanner.nextInt();
+    int year = Integer.parseInt(myScanner.nextLine());
 
     System.out.print("please enter the make ");
     String make = myScanner.nextLine();
@@ -84,10 +103,10 @@ public void addVehicle() {
     String color = myScanner.nextLine();
 
     System.out.print("please enter the odometer reading ");
-    int odometer = myScanner.nextInt();
+    int odometer = Integer.parseInt(myScanner.nextLine());
 
     System.out.print("please enter the price  ");
-    BigDecimal price = myScanner.nextBigDecimal();
+    BigDecimal price = new BigDecimal(myScanner.nextLine());
 
     Vehicle vehicle = new Vehicle(
             vin, year, make, model, vehicleType,
